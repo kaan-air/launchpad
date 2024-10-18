@@ -44,7 +44,6 @@ handleColumn(48);
 
 input.on('noteon', ({ note, velocity, channel }) => {
   if (velocity === 0) return;
-  if (!lightsOn) return;
   handleColumn(note);
 });
 
