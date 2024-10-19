@@ -22,7 +22,7 @@ The first program that I wrote for the Launchpad X. Simply tap one of the pads i
 ### sandbox.js
 An app I use to test ideas before turning them into dedicated files/apps within the repo. Potentially unstable
 
-# TODO:
+# WIP:
 
-### homekit.js
-Use sliders in `sliders.js` to control smart home accessories
+### smarthome/index.js
+Using sliders in `sliders.js` to control smart home accessories, and PC RGB lights through OpenRGB
