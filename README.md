@@ -4,6 +4,7 @@ A collection of fun/interesting node programs specifically designed to run on th
 ### colors.js
 Showcases all 128 possible color values that the Novation Lanuchpad X can represent (0-127). Use the UP/DOWN arrow buttons to cycle between page 1 (colors 0-63) and page 2 (colors 64-127)
 ![IMG_4378](https://github.com/user-attachments/assets/131e3850-743c-47b2-bde1-0f8b3b75b5ea)
+<img src="https://github.com/user-attachments/assets/131e3850-743c-47b2-bde1-0f8b3b75b5ea" alt="IMG_4378" width="250" height="auto">
 
 ### connect4.js
 The popular board game, connect4, on a launchpad. Right-side control pads display the color of the current player's move (red or yellow)
