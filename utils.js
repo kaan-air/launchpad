@@ -23,6 +23,8 @@ export const BUTTON_MAP_MAIN = [
   [11,12,13,14,15,16,17,18],
 ];
 
+export const BUTTON_MAP_MAIN_FLAT = BUTTON_MAP_MAIN.flatMap((row) => row);
+
 // Top 8 "control" pads (up,down,left,right,session,note,custom,capture midi)
 export const BUTTON_MAP_TOP = [91,92,93,94,95,96,97,98];
 
@@ -42,18 +44,89 @@ export const BUTTON_MAP_ALL = [
   [11,12,13,14,15,16,17,18,19],
 ];
 
+export const BUTTON_MAP_ALL_FLAT = BUTTON_MAP_ALL.flatMap((row) => row);
+
+export const PAD_COLORS = [
+  '#000000', // OFF
+  '#252525',
+  '#8F8F8F',
+  '#FFFFFF', // WHITE
+  '#FF655C',
+  '#FF0000', // RED
+  '#6E0A03',
+  '#220100',
+  '#FFC77C',
+  '#FF7F00', // ORANGE
+  '#6E2806',
+  '#301F02',
+  '#FFF84D',
+  '#FFFF00', // YELLOW
+  '#6C6915',
+  '#201F02',
+  '#94F751',
+  '#53F63C',
+  '#1E6814',
+  '#193306',
+  '#45F751',
+  '#00FF00', // GREEN
+  '#54DA4E',
+  '#001E02',
+  '#43F768',
+  '#09F63B',
+  '#02681D',
+  '#51A74F',
+  '#40F897',
+  '#04F75D',
+  '#016822',
+  '#002413',
+  '#39F8C1',
+  '#00F7A7',
+  '#006943',
+  '#001F13',
+  '#3FCFFC',
+  '#00B8FC',
+  '#005263',
+  '#00141F',
+  '#499EFB',
+  '#0070FA',
+  '#00296B',
+  '#000720',
+  '#4F69FA',
+  '#0000FF', // BLUE
+  '#0014C0',
+  '#000220',
+  '#926AF9',
+  '#5B3DF9',
+  '#171877',
+  '#080840',
+  '#FF70FA',
+  '#4B0082', // INDIGO
+  '#6D196B',
+  '#210320',
+  '#FF6995',
+  '#9400D3', // VIOLET
+  '#6E0D24',
+  '#2C0213',
+  '#FF3313',
+  '#AD470A',
+  '#8E6315',
+  '#507417',
+];
+
 export const COLORS = {
+  // TEST: COLORS[0].pad,
   OFF: 0,
   WHITE: 3,
   RED: 5,
   ORANGE: 9,
   YELLOW: 13,
   GREEN: 21,
-  AQUA: 37,
   BLUE: 45,
   INDIGO: 53,
   VIOLET: 57,
+  NZXT_PURPLE: 81,
 };
+
 
 export const setButtonColor = (note, color) => {
   buttonStates[note] = color;
@@ -83,4 +156,24 @@ export const setupCleaners = () => {
   process.on('SIGINT', cleanup);
   process.on('exit', cleanup);
   process.on('uncaughtException', cleanup);
+}
+
+export const hexBrightness = (hex, brightness) => {
+    // Clamp brightness to ensure it's between 0 and 1
+    brightness = Math.max(0, Math.min(1, brightness));
+    
+    // Convert hex to RGB
+    let r = parseInt(hex.slice(1, 3), 16);
+    let g = parseInt(hex.slice(3, 5), 16);
+    let b = parseInt(hex.slice(5, 7), 16);
+    
+    // Calculate new RGB values based on brightness
+    r = Math.round(r * brightness);
+    g = Math.round(g * brightness);
+    b = Math.round(b * brightness);
+    
+    // Convert back to hex
+    const newHex = `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    
+    return newHex;
 }
